@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>독도교육 메인</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=Gaegu:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary-color: #ffb6c1;
+      --primary-hover: #ff9aab;
+      --secondary-color: #ffeaa7;
+      --bg-color: #fff5f7;
+      --text-color: #5a4444;
+      --card-bg: #ffffff;
+      --shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+      --border-radius: 20px;
+    }
+    
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 2rem;
+      background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffd1dc' fill-opacity='0.2' fill-rule='evenodd'/%3E%3C/svg%3E");
+    }
+    
+    .container {
+      background-color: var(--card-bg);
+      border-radius: var(--border-radius);
+      padding: 3rem;
+      box-shadow: var(--shadow);
+      width: 100%;
+      max-width: 600px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      border: 8px solid white;
+      animation: fadeIn 0.8s ease-in-out;
+    }
+    
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .decoration {
+      position: absolute;
+      z-index: 0;
+      opacity: 0.1;
+    }
+    
+    .decoration-1 {
+      top: -20px;
+      left: -20px;
+      font-size: 120px;
+      color: var(--primary-color);
+      transform: rotate(-25deg);
+    }
+    
+    .decoration-2 {
+      bottom: -20px;
+      right: -20px;
+      font-size: 120px;
+      color: var(--secondary-color);
+      transform: rotate(15deg);
+    }
+    
+    .content {
+      position: relative;
+      z-index: 1;
+    }
+    
+    .header {
+      margin-bottom: 2rem;
+    }
+    
+    h1 {
+      color: var(--text-color);
+      margin-bottom: 0.8rem;
+      font-size: 2.2rem;
+      font-weight: 700;
+      position: relative;
+      display: inline-block;
+    }
+    
+    h1::after {
+      content: '';
+      position: absolute;
+      height: 8px;
+      border-radius: 4px;
+      background-color: var(--secondary-color);
+      width: 100%;
+      left: 0;
+      bottom: 0px;
+      z-index: -1;
+      opacity: 0.8;
+    }
+    
+    .subtitle {
+      font-family: 'Gaegu', cursive;
+      font-size: 1.3rem;
+      color: #8e7777;
+      margin-top: 0.5rem;
+      margin-bottom: 2rem;
+    }
+    
+    .link-box {
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+      margin-top: 1.5rem;
+    }
+    
+    .link-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem 2rem;
+      background-color: var(--primary-color);
+      color: var(--text-color);
+      text-decoration: none;
+      border-radius: 30px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 6px rgba(255, 182, 193, 0.3);
+      position: relative;
+      overflow: hidden;
+      min-width: 150px;
+    }
+    
+    .link-btn:hover {
+      background-color: var(--primary-hover);
+      transform: translateY(-3px);
+      box-shadow: 0 6px 12px rgba(255, 182, 193, 0.4);
+    }
+    
+    .link-btn:active {
+      transform: translateY(-1px);
+    }
+    
+    .link-btn::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: -100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+      transition: 0.5s;
+    }
+    
+    .link-btn:hover::after {
+      left: 100%;
+    }
+    
+    .icon {
+      margin-right: 8px;
+      font-size: 1.2rem;
+    }
+    
+    .footer {
+      font-size: 0.9rem;
+      color: #8e7777;
+      margin-top: 2.5rem;
+    }
+    
+    .illustration {
+      max-width: 200px;
+      margin: 0 auto 1.5rem auto;
+    }
+    
+    .island {
+      position: relative;
+      width: 120px;
+      height: 60px;
+      background-color: #8fbc8f;
+      border-radius: 50% 50% 45% 45%;
+      margin: 0 auto 10px auto;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    
+    .island::before {
+      content: '';
+      position: absolute;
+      top: -20px;
+      left: 30px;
+      width: 40px;
+      height: 40px;
+      background-color: #3cb371;
+      border-radius: 50% 50% 45% 45%;
+    }
+    
+    .island::after {
+      content: '';
+      position: absolute;
+      top: -10px;
+      right: 25px;
+      width: 30px;
+      height: 30px;
+      background-color: #3cb371;
+      border-radius: 50% 50% 45% 45%;
+    }
+    
+    .sea {
+      width: 180px;
+      height: 40px;
+      background-color: #6495ed;
+      border-radius: 50%;
+      margin: 0 auto;
+      position: relative;
+      z-index: -1;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    
+    .home-btn {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 45px;
+      height: 45px;
+      background-color: var(--primary-color);
+      color: var(--text-color);
+      border-radius: 50%;
+      text-decoration: none;
+      box-shadow: 0 4px 6px rgba(255, 182, 193, 0.3);
+      transition: all 0.3s ease;
+      z-index: 10;
+    }
+    
+    .home-btn:hover {
+      background-color: var(--primary-hover);
+      transform: translateY(-3px) rotate(-5deg);
+      box-shadow: 0 6px 12px rgba(255, 182, 193, 0.4);
+    }
+    
+    .home-btn i {
+      font-size: 1.4rem;
+    }
+    
+    @media (max-width: 480px) {
+      .container {
+        padding: 2rem;
+      }
+      
+      h1 {
+        font-size: 1.8rem;
+      }
+      
+      .subtitle {
+        font-size: 1.1rem;
+      }
+      
+      .link-box {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .link-btn {
+        width: 100%;
+      }
+      
+      .home-btn {
+        top: 15px;
+        left: 15px;
+        width: 40px;
+        height: 40px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a href="index.html" class="home-btn" title="메인 페이지로 돌아가기">
+      <i class="fa-solid fa-house"></i>
+    </a>
+    
+    <div class="decoration decoration-1"><i class="fa-solid fa-sun"></i></div>
+    <div class="decoration decoration-2"><i class="fa-solid fa-cloud"></i></div>
+    
+    <div class="content">
+      <div class="header">
+        <h1>독도교육 메인</h1>
+        <div class="subtitle">소중한 우리 영토, 함께 배워요</div>
+      </div>
+      
+      <div class="illustration">
+        <div class="island"></div>
+        <div class="sea"></div>
+      </div>
+      
+      <p>학년별 페이지를 선택하세요</p>
+      
+      <div class="link-box">
+        <a href="lower.html" class="link-btn">
+          <span class="icon"><i class="fa-solid fa-child"></i></span>
+          1~4학년용
+        </a>
+        <a href="upper.html" class="link-btn">
+          <span class="icon"><i class="fa-solid fa-child-reaching"></i></span>
+          5~6학년용
+        </a>
+      </div>
+      
+      <div class="footer">
+        <div>2025학년도 박달초등학교 독도교육</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

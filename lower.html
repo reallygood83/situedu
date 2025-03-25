@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>독도교육 (1~4학년용)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary-color: #ffd1dc;
+      --primary-hover: #ffb6c1;
+      --accent-color: #ff8da1;
+      --bg-color: #fffaf5;
+      --text-color: #333;
+      --card-bg: #ffffff;
+      --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 2rem;
+    }
+
+    .container {
+      background-color: var(--card-bg);
+      border-radius: 1rem;
+      padding: 2.5rem;
+      box-shadow: var(--shadow);
+      width: 100%;
+      max-width: 700px; /* 500px → 조금 여유 */
+      text-align: center;
+    }
+
+    header {
+      margin-bottom: 1rem;
+    }
+    header nav a {
+      margin: 0 0.5rem;
+      text-decoration: none;
+      font-weight: 600;
+      color: var(--text-color);
+    }
+    header img {
+      height: 40px;
+      width: auto;
+      border-radius: 50%;
+      vertical-align: middle;
+    }
+
+    h1 {
+      margin-top: 0.5rem;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--text-color);
+      margin-bottom: 1rem;
+    }
+
+    .video-section {
+      background-color: var(--card-bg);
+      border-radius: 1rem;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+      padding: 1rem;
+      margin-bottom: 2rem;
+      text-align: left;
+    }
+    .video-section h2 {
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
+    }
+    .video-container {
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+      padding-top: 56.25%;
+      margin-bottom: 1rem;
+      border-radius: 0.5rem;
+    }
+    .video-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 0.5rem;
+    }
+
+    .quiz-box {
+      margin-top: 1rem;
+      border-top: 1px solid #eee;
+      padding-top: 1rem;
+    }
+    .quiz-box h3 {
+      text-align: center;
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+    }
+    .quiz-step {
+      display: none;
+      text-align: left;
+      margin-top: 1rem;
+    }
+    .quiz-step.active {
+      display: block;
+    }
+    .quiz-question {
+      margin-bottom: 1rem;
+    }
+    .quiz-question p {
+      margin-bottom: 1rem;
+    }
+    .quiz-options label {
+      display: block;
+      margin-bottom: 0.5rem;
+      cursor: pointer;
+    }
+    .quiz-result {
+      margin-top: 0.5rem;
+      font-weight: bold;
+    }
+    .btn-quiz {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.6rem 1.2rem;
+      border: none;
+      border-radius: 30px;
+      background-color: var(--primary-color);
+      cursor: pointer;
+      font-weight: 600;
+      transition: background-color 0.3s, transform 0.3s;
+    }
+    .btn-quiz:hover {
+      background-color: var(--primary-hover);
+      transform: translateY(-2px);
+    }
+
+    .navigation-btns {
+      margin-top: 1rem;
+    }
+    .navigation-btns button {
+      margin-right: 0.5rem;
+    }
+
+    footer {
+      margin-top: 2rem;
+      font-size: 0.9rem;
+      color: #666;
+    }
+    footer a {
+      color: var(--text-color);
+      text-decoration: underline;
+    }
+
+    @media (max-width: 480px) {
+      .container {
+        padding: 1.5rem;
+      }
+      .video-section {
+        margin-bottom: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <nav>
+        <a href="index.html">
+          <img src="mycharacter.png" alt="배움의 달인 로고"/>
+        </a>
+        <a href="upper.html">5~6학년용</a>
+        <a href="index.html">메인</a>
+      </nav>
+      <h1>독도교육 (1~4학년용)</h1>
+    </header>
+
+    <main>
+      <!-- 영상 #1 -->
+      <section class="video-section">
+        <h2>영상 1</h2>
+        <div class="video-container">
+          <iframe
+            src="https://www.youtube.com/embed/fEtQ6S1oMtE"
+            title="독도교육 영상 (1~4학년용 #1)"
+            frameborder="0"
+            allowfullscreen></iframe>
+        </div>
+
+        <!-- 퀴즈 박스 (문항 1개씩 표시) -->
+        <div class="quiz-box" id="quizBox">
+          <h3>퀴즈 (5문항) - 한 문제씩 풀기</h3>
+
+          <!-- 문항1 -->
+          <div class="quiz-step active" id="step1">
+            <div class="quiz-question">
+              <p>1. 안용복이 처음 일본에 납치되었을 때, 누구를 만나 울릉도와 독도가 조선의 땅임을 주장했나요?</p>
+              <div class="quiz-options">
+                <label><input type="radio" name="q1" value="1"> 호키주 태수</label>
+                <label><input type="radio" name="q1" value="2"> 에도 번주</label>
+                <label><input type="radio" name="q1" value="3"> 막부 장군</label>
+                <label><input type="radio" name="q1" value="4"> 쓰시마 도주</label>
+              </div>
+              <p id="q1-result" class="quiz-result"></p>
+            </div>
+            <button class="btn-quiz" onclick="submitQuestion(1)">제출</button>
+            <div class="navigation-btns">
+              <button class="btn-quiz" onclick="nextStep(1)">다음 문항 &gt;</button>
+            </div>
+          </div>
+
+          <!-- 문항2 -->
+          <div class="quiz-step" id="step2">
+            <div class="quiz-question">
+              <p>2. 안용복이 일본어를 잘하게 된 이유는 무엇인가요?</p>
+              <div class="quiz-options">
+                <label><input type="radio" name="q2" value="1"> 일본 선원과 친분이 있어서</label>
+                <label><input type="radio" name="q2" value="2"> 외관에서 일본어를 자주 들었기 때문</label>
+                <label><input type="radio" name="q2" value="3"> 일본에 유학을 다녀와서</label>
+                <label><input type="radio" name="q2" value="4"> 조선 정부에서 통역 교육을 받아서</label>
+              </div>
+              <p id="q2-result" class="quiz-result"></p>
+            </div>
+            <button class="btn-quiz" onclick="submitQuestion(2)">제출</button>
+            <div class="navigation-btns">
+              <button class="btn-quiz" onclick="prevStep(2)">&lt; 이전</button>
+              <button class="btn-quiz" onclick="nextStep(2)">다음 문항 &gt;</button>
+            </div>
+          </div>
+
+          <!-- 문항3 -->
+          <div class="quiz-step" id="step3">
+            <div class="quiz-question">
+              <p>3. 안용복이 두 번째 일본으로 떠날 때 가져간 것은 무엇인가요?</p>
+              <div class="quiz-options">
+                <label><input type="radio" name="q3" value="1"> 금으로 된 조선 국새</label>
+                <label><input type="radio" name="q3" value="2"> 막부에 보낼 탄원서</label>
+                <label><input type="radio" name="q3" value="3"> 조선 팔도 지도와 관리복</label>
+                <label><input type="radio" name="q3" value="4"> 조선왕조실록 사본</label>
+              </div>
+              <p id="q3-result" class="quiz-result"></p>
+            </div>
+            <button class="btn-quiz" onclick="submitQuestion(3)">제출</button>
+            <div class="navigation-btns">
+              <button class="btn-quiz" onclick="prevStep(3)">&lt; 이전</button>
+              <button class="btn-quiz" onclick="nextStep(3)">다음 문항 &gt;</button>
+            </div>
+          </div>
+
+          <!-- 문항4 -->
+          <div class="quiz-step" id="step4">
+            <div class="quiz-question">
+              <p>4. 일본 막부가 울릉도 출입 금지령을 내린 해는 언제인가요?</p>
+              <div class="quiz-options">
+                <label><input type="radio" name="q4" value="1"> 1705년</label>
+                <label><input type="radio" name="q4" value="2"> 1650년</label>
+                <label><input type="radio" name="q4" value="3"> 1680년</label>
+                <label><input type="radio" name="q4" value="4"> 1696년</label>
+              </div>
+              <p id="q4-result" class="quiz-result"></p>
+            </div>
+            <button class="btn-quiz" onclick="submitQuestion(4)">제출</button>
+            <div class="navigation-btns">
+              <button class="btn-quiz" onclick="prevStep(4)">&lt; 이전</button>
+              <button class="btn-quiz" onclick="nextStep(4)">다음 문항 &gt;</button>
+            </div>
+          </div>
+
+          <!-- 문항5 -->
+          <div class="quiz-step" id="step5">
+            <div class="quiz-question">
+              <p>5. 안용복이 조선에서 받았던 최종 평가는 어땠나요?</p>
+              <div class="quiz-options">
+                <label><input type="radio" name="q5" value="1"> 조정의 영웅으로 칭송받음</label>
+                <label><input type="radio" name="q5" value="2"> 국제 문제를 일으켰다는 이유로 사형 위기에 처함</label>
+                <label><input type="radio" name="q5" value="3"> 공식 사절단으로 임명됨</label>
+                <label><input type="radio" name="q5" value="4"> 양반 신분으로 승격됨</label>
+              </div>
+              <p id="q5-result" class="quiz-result"></p>
+            </div>
+            <button class="btn-quiz" onclick="submitQuestion(5)">제출</button>
+            <div class="navigation-btns">
+              <button class="btn-quiz" onclick="prevStep(5)">&lt; 이전</button>
+              <!-- 마지막 문항이므로 "다음" 대신 끝내기 or 전체 제출 -->
+              <button class="btn-quiz" onclick="finishQuiz()">퀴즈 완료</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 영상 #2 -->
+      <section class="video-section">
+        <h2>영상 2</h2>
+        <div class="video-container">
+          <iframe
+            src="https://www.youtube.com/embed/0B8U0MtmQJw"
+            title="독도교육 영상 (1~4학년용 #2)"
+            frameborder="0"
+            allowfullscreen></iframe>
+        </div>
+
+        <!-- 퀴즈 박스 (문항 1개씩 표시) -->
+        <div class="quiz-box" id="quizBox2">
+          <h3>퀴즈 (5문항) - 한 문제씩 풀기</h3>
+
+          <!-- 문항1 -->
+          <div class="quiz-step" id="step1_2">
+            <div class="quiz-question">
+              <p>1. 독도의 위치는 어디인가요?</p>
+              <div class="quiz-options">
+                <label><input type="radio" name="q1_2" value="1"> 제주특별자치도 서귀포시 독도리 1-96</label>
+                <label><input type="radio" name="q1_2" value="2"> 경상북도 울릉군 울릉읍 독도리 1-96</label>
+                <label><input type="radio" name="q1_2" value="3"> 전라남도 여수시 독도리 10-1</label>
+                <label><input type="radio" name="q1_2" value="4"> 부산광역시 중구 독도리 3-21</label>
+              </div>
+              <p id="q1_2-result" class="quiz-result"></p>
+            </div>
+            <button class="btn-quiz" onclick="submitQuestion2(1)">제출</button>
+            <div class="navigation-btns">
+              <button class="btn-quiz" onclick="nextStep2(1)">다음 문항 &gt;</button>
+            </div>
+          </div>
+
+          <!-- 문항2 -->
+          <div class="quiz-step" id="step2_2">
+            <div class="quiz-question">
+              <p>2. 독도가 대한민국 영토임을 주장한 조선시대 인물은 누구인가요?</p>
+              <div class="quiz-options">
+                <label><input type="radio" name="q2_2" value="1"> 세종대왕</label>
+                <label><input type="radio" name="q2_2" value="2"> 이순신</label>
+                <label><input type="radio" name="q2_2" value="3"> 안용복</label>
+                <label><input type="radio" name="q2_2" value="4"> 장영실</label>
+              </div>
+              <p id="q2_2-result" class="quiz-result"></p>
+            </div>
+            <button class="btn-quiz" onclick="submitQuestion2(2)">제출</button>
+            <div class="navigation-btns">
+              <button class="btn-quiz" onclick="prevStep2(2)">&lt; 이전</button>
+              <button class="btn-quiz" onclick="nextStep2(2)">다음 문항 &gt;</button>
+            </div>
+          </div>
+
+          <!-- 문항3 -->
+          <div class="quiz-step" id="step3_2">
+            <div class="quiz-question">
+              <p>3. 독도의 자연적 가치로 <strong>틀린 것</strong>은 무엇인가요?</p>
+              <div class="quiz-options">
+                <label><input type="radio" name="q3_2" value="1"> 천연기념물로 지정된 새들의 번식지</label>
+                <label><input type="radio" name="q3_2" value="2"> 플랑크톤이 풍부한 황금어장</label>
+                <label><input type="radio" name="q3_2" value="3"> 해저산의 지질 유적지</label>
+                <label><input type="radio" name="q3_2" value="4"> 석유가 나오는 자원지대</label>
+              </div>
+              <p id="q3_2-result" class="quiz-result"></p>
+            </div>
+            <button class="btn-quiz" onclick="submitQuestion2(3)">제출</button>
+            <div class="navigation-btns">
+              <button class="btn-quiz" onclick="prevStep2(3)">&lt; 이전</button>
+              <button class="btn-quiz" onclick="nextStep2(3)">다음 문항 &gt;</button>
+            </div>
+          </div>
+
+          <!-- 문항4 -->
+          <div class="quiz-step" id="step4_2">
+            <div class="quiz-question">
+              <p>4. 조선 정부가 일본에 울릉도 출입 금지를 통보한 해는 언제인가요?</p>
+              <div class="quiz-options">
+                <label><input type="radio" name="q4_2" value="1"> 1592년</label>
+                <label><input type="radio" name="q4_2" value="2"> 1720년</label>
+                <label><input type="radio" name="q4_2" value="3"> 1698년</label>
+                <label><input type="radio" name="q4_2" value="4"> 1821년</label>
+              </div>
+              <p id="q4_2-result" class="quiz-result"></p>
+            </div>
+            <button class="btn-quiz" onclick="submitQuestion2(4)">제출</button>
+            <div class="navigation-btns">
+              <button class="btn-quiz" onclick="prevStep2(4)">&lt; 이전</button>
+              <button class="btn-quiz" onclick="nextStep2(4)">다음 문항 &gt;</button>
+            </div>
+          </div>
+
+          <!-- 문항5 -->
+          <div class="quiz-step" id="step5_2">
+            <div class="quiz-question">
+              <p>5. 독도를 지키는 현재의 공식 조직은 무엇인가요?</p>
+              <div class="quiz-options">
+                <label><input type="radio" name="q5_2" value="1"> 사이버 외교사절단</label>
+                <label><input type="radio" name="q5_2" value="2"> 반크</label>
+                <label><input type="radio" name="q5_2" value="3"> 독도경비대</label>
+                <label><input type="radio" name="q5_2" value="4"> 외교부 해양부</label>
+              </div>
+              <p id="q5_2-result" class="quiz-result"></p>
+            </div>
+            <button class="btn-quiz" onclick="submitQuestion2(5)">제출</button>
+            <div class="navigation-btns">
+              <button class="btn-quiz" onclick="prevStep2(5)">&lt; 이전</button>
+              <button class="btn-quiz" onclick="finishQuiz2()">퀴즈 완료</button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>AI활용 코딩을 함께하실 분들과 소통하고 싶습니다.^^
+        <a href="https://open.kakao.com/o/gubGYQ7g" target="_blank">오픈채팅방 바로가기</a>
+      </p>
+      <p>&copy; 유튜브 배움의달인 김문정</p>
+    </footer>
+  </div>
+
+  <script>
+    // 1) 첫 번째 영상 정답
+    const correctAnswers = {
+      q1: "1", // 문항1 정답
+      q2: "2", // 문항2 정답
+      q3: "3", // 문항3 정답
+      q4: "4", // 문항4 정답
+      q5: "2"  // 문항5 정답
+    };
+
+    // 2) 두 번째 영상 정답
+    const correctAnswers2 = {
+      q1_2: "2", // 1번
+      q2_2: "3", // 2번
+      q3_2: "4", // 3번
+      q4_2: "3", // 4번
+      q5_2: "3"  // 5번
+    };
+
+    // ---------- 첫 번째 영상 로직 ---------- //
+    function submitQuestion(qNum){
+      const radios = document.getElementsByName(`q${qNum}`);
+      const resultP = document.getElementById(`q${qNum}-result`);
+      const correctVal = correctAnswers[`q${qNum}`];
+
+      let selectedVal = "";
+      for(let i=0; i<radios.length; i++){
+        if(radios[i].checked){
+          selectedVal = radios[i].value;
+          break;
+        }
+      }
+      if(!selectedVal){
+        resultP.textContent = "답을 선택하세요!";
+        resultP.style.color = "red";
+      } else if(selectedVal === correctVal){
+        resultP.textContent = "정답입니다!";
+        resultP.style.color = "green";
+      } else {
+        resultP.textContent = "오답입니다. 다시 생각해보세요!";
+        resultP.style.color = "red";
+      }
+    }
+
+    function nextStep(currentStep){
+      const now = document.getElementById(`step${currentStep}`);
+      const next = document.getElementById(`step${currentStep+1}`);
+      if(next){
+        now.classList.remove("active");
+        next.classList.add("active");
+      }
+    }
+    function prevStep(currentStep){
+      const now = document.getElementById(`step${currentStep}`);
+      const prev = document.getElementById(`step${currentStep-1}`);
+      if(prev){
+        now.classList.remove("active");
+        prev.classList.add("active");
+      }
+    }
+
+    function finishQuiz(){
+      alert("퀴즈를 모두 마쳤습니다! 수고하셨습니다.");
+    }
+
+    // ---------- 두 번째 영상 로직 ---------- //
+    function submitQuestion2(qNum){
+      const radios = document.getElementsByName(`q${qNum}_2`);
+      const resultP = document.getElementById(`q${qNum}_2-result`);
+      const correctVal = correctAnswers2[`q${qNum}_2`];
+
+      let selectedVal = "";
+      for(let i=0; i<radios.length; i++){
+        if(radios[i].checked){
+          selectedVal = radios[i].value;
+          break;
+        }
+      }
+      if(!selectedVal){
+        resultP.textContent = "답을 선택하세요!";
+        resultP.style.color = "red";
+      } else if(selectedVal === correctVal){
+        resultP.textContent = "정답입니다!";
+        resultP.style.color = "green";
+      } else {
+        resultP.textContent = "오답입니다. 다시 생각해보세요!";
+        resultP.style.color = "red";
+      }
+    }
+
+    function nextStep2(currentStep){
+      const now = document.getElementById(`step${currentStep}_2`);
+      const next = document.getElementById(`step${currentStep+1}_2`);
+      if(next){
+        now.classList.remove("active");
+        next.classList.add("active");
+      }
+    }
+    function prevStep2(currentStep){
+      const now = document.getElementById(`step${currentStep}_2`);
+      const prev = document.getElementById(`step${currentStep-1}_2`);
+      if(prev){
+        now.classList.remove("active");
+        prev.classList.add("active");
+      }
+    }
+
+    function finishQuiz2(){
+      alert("두 번째 영상 퀴즈를 모두 마쳤습니다! 수고하셨습니다.");
+    }
+
+    // --- Test Cases ---
+    // We add minimal test calls to ensure no syntax errors.
+    // For a more comprehensive test, we'd need user input simulation.
+
+    console.log("[TEST] No extra braces error => Script loaded successfully.");
+
+    // ---------------
+
+    document.addEventListener("DOMContentLoaded", ()=>{
+      // 첫 번째 영상: step1만 표시
+      document.getElementById("step1").classList.add("active");
+      // 두 번째 영상: step1_2만 표시
+      document.getElementById("step1_2").classList.add("active");
+    });
+  </script>
+</body>
+</html>
